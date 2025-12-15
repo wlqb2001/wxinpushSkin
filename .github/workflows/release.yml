@@ -70,11 +70,11 @@ jobs:
             if [ -d "$item" ]; then
               # It's a directory, create a tar.gz archive
               echo "Packaging directory: $item"
-              tar -czf "release-assets/$item.tar.gz" "$item"
+              tar -czf "release-assets/$item.tar.gz" -- "$item"
             elif [ -f "$item" ]; then
               # It's a file, create a .gz archive
               echo "Packaging file: $item"
-              gzip -c "$item" > "release-assets/$item.gz"
+              gzip -c -- "$item" > "release-assets/$item.gz"
             fi
           done
 
